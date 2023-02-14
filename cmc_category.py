@@ -4,12 +4,12 @@ import pprint
 import datetime
 import time
 import os
-from config_cmc import *
+from config import *
 
 SLEEP_TIME = 0.2
 
 ## ==================================##
-## setup config_cmc.py in the same folder
+## setup config.py in the same folder
 ## ==================================##
 
 
@@ -202,7 +202,7 @@ grouped_pairs = group_into_n(tradingview_pairs, n)
 # /Users/raysonkong/code/python/webscrapping/scripts_v2/cmc_api_to_tradingview/outputs
 def output_to_text_file(nested_grouped_pairs):
     for idx, group in enumerate(nested_grouped_pairs):
-            filename=f"{os.getcwd()}/CMC_{officalName}_{generation_date}total{HOW_MANY_COINS}/-0.4 {officalName} CMC p.{idx+1} ({generation_date}).txt"
+            filename=f"{os.getcwd()}/CMC_{officalName}_{generation_date}total_{len(tradingview_pairs)}/-0.4 {officalName} CMC p.{idx+1} ({generation_date}).txt"
             os.makedirs(os.path.dirname(filename), exist_ok=True)
             with open(filename, "w") as f:
                 for pair in group:
